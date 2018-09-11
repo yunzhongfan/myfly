@@ -124,6 +124,17 @@ git的分支合并一般都在本地进行，在分支合并的时候创建一�
   
   git commit  -m'all'   提交加入satge的文件
 
+## 解决冲突
+[廖雪峰git官网](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840202368c74be33fbd884e71b570f2cc3c0d1dcf000)
+
+在本地合并产冲突的原因 分支1 修改问文件commit后未远程push到远程，然后切换分支到分分之二，再次commit到分支2 ，然后在merge分支1和分支2产生冲突；git merge feature1
+
+打开冲突文件把冲突文件把冲突结局然后在git add -u ;git  commit -m '结局冲突' git push orgin 分支2 
+
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改如下后保存：
+
+
+
 
 
 
