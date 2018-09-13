@@ -33,4 +33,7 @@ windows下 打开C:\Windows\System32\drivers\etc\hosts文件
 
 保存。
 
-over~
+使用Atom打造无懈可击的Markdown编辑器
+https://www.cnblogs.com/libin-1/p/6638165.html
+
+![baidu](assets/markdown-img-paste-20180913124928121.png)
