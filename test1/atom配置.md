@@ -39,3 +39,13 @@ windows下 打开C:\Windows\System32\drivers\etc\hosts文件
 https://www.cnblogs.com/libin-1/p/6638165.html
 
 ![baidu](assets/markdown-img-paste-20180913124928121.png)
+
+
+Atom 快捷键
+关闭上个关闭的文件 shit+ctrl+T
+ 关闭当前光标所在的文件 ctrl+W
+ 打开文件夹  shit+ctrl+O
+ 添加项目   打开文件夹  shit+ctrl+A
+ markDown预览 Ctrl+M
+  插件快捷调用命令窗口 Ctrl+Shit+p
+另存为 Ctrl+Shit+S
