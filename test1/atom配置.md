@@ -1,5 +1,13 @@
 ## atom 配置
 
++ git ID
+ 67dd3c0e198e5ceab60e6c1cd195742061692fe0
+ + gist
+  同步配置ID
+ <script src="https://gist.github.com/yunzhongfan/7b2d3cd8f1bc4487dcf7bc8c0c75384f.js"></script>
+
+ 
+
 windows下使用快捷键 ctrl + shift + p，打开命令输入框；
 
 3、输入 markdown preview toggle(可以偷懒只输入mdpt，支持模糊匹配)
@@ -10,8 +18,8 @@ windows下使用快捷键 ctrl + shift + p，打开命令输入框；
 
 也可以直接使用快捷键不过由于快捷键冲突问题可能没效果，当你熟悉Atom之后你也可以定制属于直接的一套快捷键；
 
-my git ID
- 67dd3c0e198e5ceab60e6c1cd195742061692fe0
+
+
 
 
 
