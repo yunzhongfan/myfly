@@ -1,6 +1,6 @@
 ## VSCdode使用也很方便
 
-git id: b82dddd15934f9479f3d85507870458d5c64ece7
+git id: 1f591f412a31ffc8e895d8ef84bdac4d3bbd81cb
 
 gist: <script src="https://gist.github.com/yunzhongfan/c50cccc4d85e1037d1353876ca1ae6bf.js"></script>
 
