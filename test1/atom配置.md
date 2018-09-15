@@ -1,12 +1,12 @@
 ## atom 配置
 
 + git ID
- 67dd3c0e198e5ceab60e6c1cd195742061692fe0
+ 597be36da1cdb989f1772b02c31a92866bcf0b00
  + gist
   同步配置ID
  <script src="https://gist.github.com/yunzhongfan/7b2d3cd8f1bc4487dcf7bc8c0c75384f.js"></script>
 
- 
+
 
 windows下使用快捷键 ctrl + shift + p，打开命令输入框；
 
@@ -57,7 +57,3 @@ Atom 快捷键
  markDown预览 Ctrl+M
   插件快捷调用命令窗口 Ctrl+Shit+p
 另存为 Ctrl+Shit+S
-
-
-
-
