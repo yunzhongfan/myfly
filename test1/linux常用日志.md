@@ -16,9 +16,8 @@ cat filename | tail -n +3000 | head -n 1000
 
 cat filename| head -n 3000 | tail -n +1000
 
-*注意两种方法的顺序
+* 注意两种方法的顺序
 
-分解：
 
     tail -n 1000：显示最后1000行
 
