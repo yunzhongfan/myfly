@@ -13,4 +13,10 @@ VScode插件配置的坑
  http://www.mamicode.com/info-detail-2267598.html
 
 
+截图插件
+ https://www.jianshu.com/p/74b960efb697
 
+ ctrl+alt+粘贴图片的快捷键
+
+
+![](../assets/2018-09-16-00-14-43.png)
