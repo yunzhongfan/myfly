@@ -24,3 +24,9 @@ cat filename| head -n 3000 | tail -n +1000
     tail -n +1000：从1000行开始显示，显示1000行以后的
 
     head -n 1000：显示前面1000行
+
+
+
+## linux  文件夹操作 
+回退到上个命令所在的文件夹 
+cd -  或者  cd $OLDPWD。
