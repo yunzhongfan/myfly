@@ -1,3 +1,5 @@
+教程
+
 ## git add -A 和 git add . 的区别
 
 git add -A和 git add .   git add -u在功能上看似很相近，但还是存在一点差别
