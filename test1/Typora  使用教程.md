@@ -9,9 +9,9 @@ typora-copy-images-to: assets
 
 #### 标题
 
-一级标题	 ctrrl+1
+一级标题：ctrrl+1
 
-二级标题: 	ctrl+2
+二级标题: ctrl+2
 
 三级标题:	ctrl+3
 
@@ -43,7 +43,7 @@ typora-copy-images-to: assets
 
 - 无序列表
 
-- [ ] 任务列表
+- [x] 任务列表
 
 
 
@@ -58,10 +58,6 @@ typora-copy-images-to: assets
 ~~删除线	alt+shift+5~~
 
 
-
-
-
-------
 
 
 
@@ -84,11 +80,7 @@ $$
 >
 > 
 
-
-
 内联公式
-
-
 
 图像 ctrl+shift+I
 
