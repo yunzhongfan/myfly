@@ -20,9 +20,9 @@ cat filename| head -n 3000 | tail -n +1000
 
 
     tail -n 1000：显示最后1000行
-
+    
     tail -n +1000：从1000行开始显示，显示1000行以后的
-
+    
     head -n 1000：显示前面1000行
 
 
@@ -30,3 +30,19 @@ cat filename| head -n 3000 | tail -n +1000
 ## linux  文件夹操作 
 回退到上个命令所在的文件夹 
 cd -  或者  cd $OLDPWD。
+
+
+
+
+
+## **vim 显示行号**
+
+
+
+vim  文件  ，进入编辑文件模式
+
+:set number 或者 :set nu  
+
+vim  三种模式之间的转换
+
+![1537873750303](G:\code\mygit\myfly\assets\1537873750303.png)
