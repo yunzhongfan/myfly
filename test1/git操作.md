@@ -166,9 +166,31 @@ cd packages/apps/Mms/src/com/android/mms/ui/
 
 git log --pretty=oneline 文件名
 
+## rebase 命令
 
+假设你现在基于远程分支"origin"，创建一个叫"mywork"的分支。 
 
-:happy:
+```
+$ git checkout -b mywork origin
+```
+
+![img](http://gitbook.liuhui998.com/assets/images/figure/rebase0.png) 
+
+现在我们在这个分支做一些修改，然后生成两个提交(commit). 
+
+```
+$ vi file.txt
+$ git commit
+$ vi otherfile.txt
+$ git commit
+...
+```
+
+但是与此同时，有些人也在"origin"分支上做了一些修改并且做了提交了. 这就意味着"origin"和"mywork"这两个分支各自"前进"了，它们之间"分叉"了 
+
+![img](http://gitbook.liuhui998.com/assets/images/figure/rebase1.png) 
+
+在这里，你可以用"pull"命令把"origin"分支上的修改拉下来并且和你的修改合并； 结果看起来就像一个新的"合并的提交"(merge commit): 
 
 
 
