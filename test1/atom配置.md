@@ -3,7 +3,7 @@
 + git ID
  597be36da1cdb989f1772b02c31a92866bcf0b00
  + gist
-  同步配置ID
+    同步配置ID
  <script src="https://gist.github.com/yunzhongfan/7b2d3cd8f1bc4487dcf7bc8c0c75384f.js"></script>
 
 
@@ -17,12 +17,6 @@ windows下使用快捷键 ctrl + shift + p，打开命令输入框；
 按enter键即可看到预览，左边编辑，右边实时预览:
 
 也可以直接使用快捷键不过由于快捷键冲突问题可能没效果，当你熟悉Atom之后你也可以定制属于直接的一套快捷键；
-
-
-
-
-
-
 
 github gist创新，微码分享
 https://blog.csdn.net/fishmai/article/details/52398490
