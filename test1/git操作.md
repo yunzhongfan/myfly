@@ -18,6 +18,14 @@ git add -A和 git add .   git add -u在功能上看似很相近，但还是存�
 
 ·  git add .  **提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件**
 
+
+
+## Git命令行添加整个文件夹及目录
+
+git add 文件夹/            添加整个文件夹及内容
+
+git add *.文件类型       添加目录中所有此文件类型的文件
+
 ********
 
 ##  撤销操作
@@ -693,3 +701,22 @@ Import existing Eclipse Projects(会自动导入成项目，一般选这个)，
 Import using the New Project Wizard(使用项目向导可重新配置项目),
 
 ##### Import as general project(类似于文件夹层次，可以手动选择转换成项目)
+
+
+
+
+
+
+
+# Git 给一个项目添加git源 或者重定向项目git源
+
+项目使用git管理，当git地址改变了该怎么办？
+
+其实git远程地址改变和idea没有任何关系，idea上Git里面也没有重新定位远程地址的选项，下面是我的一个idea项目git远程地址修改后的解决办法：
+
+1.鼠标右键项目点击“show in explorer” 
+2.右键“git bash” 
+3.输入命令：git remote set-url origin xxxxx 
+“xxxx”就是你的新的git地址 
+--------------------- 
+## 
