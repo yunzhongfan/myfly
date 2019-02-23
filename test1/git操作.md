@@ -69,6 +69,30 @@ eg：$ git checkout -- git操作.md
 使用命令：git status  能让我们时刻掌握仓库当前的状态
 
 
+
+# git 中怎样查看未传送(git push)到远程代码库的(git commit)提交?
+
+可以查看已经commit 但是还没有push 的代码
+
+git log master ^origin/master
+
+![1550892377158](E:\code\mygit\myfly\test1\assets\1550892377158.png)
+
+**2,查看到未传送到远程代码库的****提交描述/说明**
+
+` git cherry -v                                                                                                                                                             `
+
+![1550892439273](E:\code\mygit\myfly\test1\assets\1550892439273.png)
+
+
+
+3. 查看本地代码的提交和未提交的文件
+
+1. git status
+
+![1550892524432](E:\code\mygit\myfly\test1\assets\1550892524432.png)
+
+
 ## git本地检出一个新的分支并推送到远程仓库
 
 git checkout -b 新分支名
@@ -519,3 +543,153 @@ git fetch  origin master
 git fetch比git pull更加安全
 ```
 
+
+
+**1、git基本命令**
+1）git add 将想要快照的内容写入缓存区
+2）git status -s "AM" 状态的意思是，这个文件在我们将它添加到缓存之后又有改动
+3）git commit -m '第一次版本提交' -m选项添加备注信息
+4）git clone url 使用 git clone 拷贝一个 Git 仓库到本地
+5）git diff 查看执行 git status 的结果的详细信息
+　　尚未缓存的改动：git diff
+　　查看已缓存的改动： git diff --cached
+　　查看已缓存的与未缓存的所有改动：git diff HEAD
+　　显示摘要而非整个 diff：git diff --stat
+6）git commit -a 跳过git add 提交缓存的流程 
+7）git reset HEAD 用于取消已缓存的内容
+8）git rm file 
+　　git rm 会将条目从缓存区中移除。这与 git reset HEAD 将条目取消缓存是有区别的。
+　　"取消缓存"的意思就是将缓存区恢复为我们做出修改之前的样子。
+　　默认情况下，git rm file 会将文件从缓存区和你的硬盘中（工作目录）删除。
+9）git mv 重命名磁盘上的文件 如 git mv README README.md
+
+10）git push -u origin master 提交代码
+
+**2、git 分支管理**
+1）创建分支命令 git branch (branchname) 列出分支 git branch
+2）切换分支命令 git checkout (branchname)
+3）合并分支 git merge (branchname)
+4）创建新分支并立即切换到该分支下 git checkout -b (branchname)
+5）删除分支命令 git branch -d (branchname)
+ps:状态 uu 表示冲突未解决 可以用 git add 要告诉 Git 文件冲突已经解决
+**3、查看日志版本**
+git log 命令列出历史提交记录
+git log --oneline 查看历史记录的简洁的版本
+git log --oneline --graph 查看历史中什么时候出现了分支、合并
+**4、标签**
+为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 1.0.0 的标签：
+git tag 1.0.0 1b2e1d63ff
+1b2e1d63ff 是你想要标记的提交 ID 的前 10 位字符。可以使用下列命令获取提交 ID：
+git log
+你也可以使用少一点的提交 ID 前几位，只要它的指向具有唯一性
+
+**5、提取远程仓库代码**
+
+1）git fetch　　从远程仓库下载新分支与数据
+
+2)）git pull　　从远端仓库提取数据并尝试合并到当前分支
+
+**6、git分支**
+
+git-flow主要有5中分支：master、hotfix、release、develop、feature
+
+![1550892620834](E:\code\mygit\myfly\test1\assets\1550892620834.png)
+
+eature分支开始于develop分支，完成以后合并到develop分支。
+当完成一定数量feature分支以后，从develop再开一个release分支出来，这些特性将被更行到下一个发布的版本中，之后的feature将不会被合并到release中。
+之后在release分支中，只修改bug，然后完成release分支。完成release分支会完成以下三个操作：1、合并release分支到master；2、给master打上版本的标签；3、release回归到develop分支。
+当发现master上有bug时，开一个hotfix，完成后合并到master分支。
+基本的开发流程就是这样，不清楚的可以看看文档[Gitflow Workflow](https://link.zhihu.com/?target=https%3A//www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow/)
+
+分支简介转载于：https://www.zhihu.com/question/21995370/answer/33172036
+
+# eclipse git控件操作 回退到历史提交 重置 删除(撤销)历史的某次提交
+
+工作区--》暂存区--》本地仓库--》远端git仓库
+
+(个人理解，不对之处望指正)
+
+
+
+Reset操作
+假设我在工作区中 创建了一个新的文件  newFile.text，并提交到了本地仓库中
+
+操作方式1：(分支最新提交记录)
+选择项目 鼠标右键--team--reset--Remote Tracking   选择远端git仓库 分支的最新版本   
+
+--Reset type下有三个选项
+
+Soft：**工作区文件的修改不变，提交记录被重置**（文件存在于暂存区中；当提交记录commit写错时，可以选择这个方式来重新填写commit记录）；newFile.text文件的状态是 加号 +
+
+Mixed：**工作区文件的修改不变，提交记录被重置**（文件存在于工作区，需要重新提交；当提交记录commit中有几个文件并不想上传，可以选择这个方式，来重新选择上传的文件）；newFile.text文件的状态是 问号 ？
+
+Hard：工作区文件的修改被删除，使用分支最新版本（远端git服务器里面的最新代码，覆盖本地的代码）；newFile.text被删除了
+
+**--点击Reset执行**
+
+操作方式2：（当前分支的任意提交记录）
+项目右键--team--show in history --选择commit记录 鼠标右键--Reset
+
+效果同方式1
+
+Soft、Mixed 操作都会使得head记录改变（head代表当前工作空间所指向commit的记录）
+
+Hard 如果文件只在工作区（标志为问号），则不会发生改变，反之则被覆写
+
+
+
+**Revert commit操作**
+选择项目--team--Show in History--选择版本右击--Revert commit--提交
+
+撤销操作会自动生成一条提交记录
+
+以下为个人理解：
+
+Reset --Hard（谨慎使用）：暂存区、本地仓库的修改，会被删除commit记录、文件；
+
+已经提交到远端git仓库的，会提示你pull最新的代码，如果有提交修改记录到本地仓库，自动先pull代码再合并）
+
+（比如我重置到某个版本，进行代码测试，看看之前的版本代码的效果）
+
+Rever commit：操作的记录会保存，自动生成commit记录，撤销是针对操作commit记录生效（比如我刚刚提交的一份代码有问题，要删除掉刚提交的代码）
+
+
+
+举个例子：
+假如有提交记录是 从1递增到5：1，2，3，4，5
+
+操作第3条记录
+
+reset --Hard 的效果是：1，2，3   （3后面的记录没了）
+
+revert commit的效果是：1，2，4，5（3这一条记录没了）
+
+
+
+
+
+**清除本地git修改**
+
+项目右键--team--Advanced--clean...(清除分支的修改)
+
+
+
+项目右键--team--stashes--stash Changes：**存储本次修改（仅限于未提交）**
+
+
+
+项目右键--team--show in history 会看到完整的提交记录
+
+项目右键--team--show in history -- modify  ：可以修改注释
+
+
+
+
+
+eclipse，git控件导入Maven项目：import--Git--Projects from Git--Existing Local repository（导入一个存在的本地库）--Next 选择项目--nex--三个选择：
+
+Import existing Eclipse Projects(会自动导入成项目，一般选这个)，
+
+Import using the New Project Wizard(使用项目向导可重新配置项目),
+
+##### Import as general project(类似于文件夹层次，可以手动选择转换成项目)
