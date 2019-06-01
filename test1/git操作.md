@@ -577,7 +577,7 @@ git diff 分支A...分支B # 比较两分支在分开后各自的改动
 # 另外：如果只想统计哪些文件被改动，多少行被改动，可以添加 --stat 参数
 ```
 
-###### 6、查看历史记录 
+###### 6、查看历史提交记录 
 
 ```
 git log # 查看所有commit记录(SHA-A校验和，作者名称，邮箱，提交时间，提交说明)
@@ -592,6 +592,76 @@ git log --grep=过滤信息 # 列出提交信息中包含过滤信息的提交�
 git log -S查询内容 # 和--grep类似，S和查询内容间没有空格
 git log fileName # 查看某文件的修改记录，找背锅专用
 ```
+
+###### 6.1  git查看某个文件的修改历史
+
+(https://www.cnblogs.com/Caden-liu8888/p/8252445.html)
+
+```
+git log --pretty
+```
+
+然后使用下面的命令可列出文件的所有改动历史，注意，这里着眼于具体的一个文件，而不是git库，如果是库，那改动可多了去了～
+
+```
+git log --pretty=oneline 文件名
+```
+
+```
+root@ubuntu:android_src/packages/apps/Mms/src/com/android/mms/ui# git log --pretty=oneline MessageItem.java 
+27209385caf678abe878375a470f4edd67a2d806 fix to process force close when empty address contained in card
+0e04b16f1dad7dc0a36e2235f7337bc656c365c7 display for 1970-1-1
+e4abf3a213197491e0855e101117b59b5dc0160d HREF#13954 receive, store, and display wap push
+356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e HREF#16265_uim_show_time_error
+350f9d34c35ab50bdb4b2d43fb3ff9780e6c73fa fix xxxx
+715e32f97bd9d8ce4b5ba650b97ba4b137150456 Fix ANR from calling Contact.get()
+fd8357ff5febab0141e1beb8dd3b26f70416b108 Fix missing From field
+```
+
+###### 6.2 显示某次文件的具体修改
+
+**git show**
+
+如上所示，打印出来的就是针对文件MessageItem.java的所有的改动历史，每一行最前面的那一长串数字就是每次提交形成的哈希值，接下来使用git show即可显示具体的某次的改动的修改～
+
+```
+git show 356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e
+```
+
+结果如下：
+
+```
+root@ubuntu:/android_src/packages/apps/Mms/src/com/android/mms/ui# git show 356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e
+commit 356f6def9d3fb7f3b9032ff5aa4b9110d4cca87e
+Author: 某某某 <某某某的邮箱>
+Date:   Thu Jan 6 01:50:31 2011 +0800
+
+    修改的描述（是该代码commit时所填）
+    
+    Signed-off-by: 某某某 <某某某的邮箱>
+
+diff --git a/src/com/android/mms/ui/MessageItem.java b/src/com/android/mms/ui/MessageItem.java
+index 0a0c4b7..55c3b27 100644
+--- a/src/com/android/mms/ui/MessageItem.java
++++ b/src/com/android/mms/ui/MessageItem.java
++
++ 列出具体的改动
+-
+```
+
+这样就可以知道是谁做了修改，以及具体的修改代码～
+
+那接下来不管是直接去找他交流还是研究代码，都有依据了～
+
+######  6.3 查看某次提交中某个文件的变化
+
+补充：我看到的更好的方法。
+**1. git log filename**
+**可以看到fileName相关的commit记录**
+**2. git log -p filename**
+**可以显示每次提交的diff**
+**3. 只看某次提交中的某个文件变化，可以直接加上fileName**
+**git show c5e69804bbd9725b5dece57f8cbece4a96b9f80b filename**
 
 ###### 7、代码回滚 
 
