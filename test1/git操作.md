@@ -529,6 +529,32 @@ git checkout master
 
  
 
+
+
+###### git  2.合并某个分支上的一系列commits
+
+
+
+在一些特性情况下，合并单个commit并不够，你需要合并一系列相连的commits。这种情况下就不要选择cherry-pick了，rebase 更适合。还以上例为例，假设你需要合并master分支的Commit a9d00a5fd3c0a~a9d00a5fd3c0a 到develop分支。 首先需要基于master创建一个新的分支，并指明新分支的最后一个commit：
+
+git checkout  -b master2  a9d00a5fd3c0a
+
+此时已经切换到新的分支了master2  上，
+
+然后再次切换到目的分支，
+
+ git checkout develop
+
+rebase这个新分支master2  的commit到develop（--onto master2 ）。76caaa^ 指明你想从哪个特定的commit开始。
+
+得到的结果就是
+
+$ git rebase --onto  master2 a9d00a5fd3c0a^
+
+master分支的commit a9d00a5fd3c0a~a9d00a5fd3c0a都被合并到了develop分支。
+
+
+
 ###  **Git 常用命令速查手册**
 
  ![1541496172398](f:\code\mygit\myfly\test1\assets\1541496172398.png)
@@ -739,6 +765,14 @@ git merge --no-ff -m "merge with no-ff" dev
 ```
 git branch -d dev
 ```
+
+###### 16.1   放弃合并
+
+git  merge-- abrort
+
+###### 16.1  放弃rebase
+
+git  rebase-- abrort
 
 ###### 17、查看分支合并图 
 
