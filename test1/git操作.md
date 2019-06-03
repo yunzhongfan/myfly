@@ -644,13 +644,9 @@ e4abf3a213197491e0855e101117b59b5dc0160d HREF#13954 receive, store, and display 
 fd8357ff5febab0141e1beb8dd3b26f70416b108 Fix missing From field
 ```
 
-查看某次历史提交的文件的具体内容
-
-
+###### 6.4查看某次历史提交的文件的具体内容
 
 git show 6b14b5883e5a03d5e2110eb78633f622e81a36ac 文件路径
-
-
 
 ![1559466890692](assets/1559466890692.png)
 
