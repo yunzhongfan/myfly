@@ -455,7 +455,7 @@ pick
 
 ![1539487748062](assets/1539487748062.png)
 
-###### **2.将某一段commit粘贴到另一个分支上(多个commit提交的记录合并到另一个分支上)**
+###### **2. 将某一段commit粘贴到另一个分支上(多个commit提交的记录合并到另一个分支上)**
 
 当我们项目中存在多个分支，有时候我们需要将某一个分支中的一段提交同时应用到其他分支中，就像下图：
 
@@ -514,7 +514,7 @@ git rebase   [startpoint]   [endpoint]  --onto  [branchName]
 
 ```
 git checkout master
-      git reset --hard  0c72e64
+      git reset --hard  0c72e64  （为提交区间comiit的闭区间结尾值）
 ```
 
 
@@ -644,6 +644,56 @@ e4abf3a213197491e0855e101117b59b5dc0160d HREF#13954 receive, store, and display 
 fd8357ff5febab0141e1beb8dd3b26f70416b108 Fix missing From field
 ```
 
+###### 6.1.1git放弃本地commit
+
+git reset --hard FETCH_HEAD
+
+如果想放弃本地的文件修改，可以使用git reset --hard FETCH_HEAD，FETCH_HEAD表示上一次成功git pull之后形成的commit点。然后git pull
+
+###### git放弃修改&放弃增加文件
+
+###### 1. 本地修改了一堆文件(并没有使用git add到暂存区)，想放弃修改。
+
+单个文件/文件夹：
+
+git checkout -- filename
+
+所有文件/文件夹：
+
+git checkout .
+
+###### 2. 本地新增了一堆文件(并没有git add到暂存区)，想放弃修改。
+
+rm filename / rm dir -rf
+
+###### 所有文件/文件夹：
+
+git clean -xdf
+
+###### 删除新增的文件，如果文件已经已经git add到暂存区，并不会删除！
+
+3. ###### 本地修改/新增了一堆文件，已经git add到暂存区，想放弃修改。
+
+  ###### 单个文件/文件夹：
+
+  ​	git reset HEAD filename
+
+###### 所有文件/文件夹：
+
+​	`git reset HEAD .`
+
+
+4. 本地通过git add & git commit 之后，想要撤销此次commit
+git reset commit_id
+1
+这个id是你想要回到的那个节点，可以通过git log查看，可以只选前6位
+// 撤销之后，你所做的已经commit的修改还在工作区！
+
+git reset --hard commit_id
+1
+这个id是你想要回到的那个节点，可以通过git log查看，可以只选前6位
+// 撤销之后，你所做的已经commit的修改将会清除，仍在工作区/暂存区的代码不会清除！
+
 ###### 6.4查看某次历史提交的文件的具体内容
 
 git show 6b14b5883e5a03d5e2110eb78633f622e81a36ac 文件路径
@@ -698,6 +748,18 @@ index 0a0c4b7..55c3b27 100644
 **可以显示每次提交的diff**
 **3. 只看某次提交中的某个文件变化，可以直接加上fileName**
 **git show c5e69804bbd9725b5dece57f8cbece4a96b9f80b filename**
+
+###### 6.5 查看某次提交是否被提交到本分支	
+
+git log |grep commitId
+
+ git log|grep d05199223bdfec70be9651e90217b4a4938b475c
+
+###### 6.6 查看某个commit被远程引用
+
+（远程分支上）git branch -r --contains COMMIT_ID
+
+（本地分支上 ） git branch  --contains COMMIT_ID
 
 ###### 7、代码回滚 
 
@@ -759,6 +821,14 @@ git checkout dev //切换分支
 ```
 git branch
 ```
+
+###### 14.1 查看本地的远程分支
+
+git branch -r
+
+###### 14.2强制本地的远程分支列表
+
+$ git remote  update origin  -p
 
 ######  15、合并分支
 
@@ -1157,7 +1227,9 @@ $ git commit -m '
  create mode 100644 ss.txt
 ```
 
+git  复制 ctrl +crtl+prtscins
 
+粘贴 ：ctrl +shit+prtscins
 
 ## linux 常用命令
 
@@ -1334,9 +1406,47 @@ tail -f /var/log/messages 实时查看被添加到一个文件中的内容
 
 2. 取消行号显示  :set nu!
 
-3. 每次打开都显示行号    修改vi ~/.vimrc 文件，添加：set number
+3. 每次打开都显示行号    修改vi ~/.vimrc 文件，添加：set number 
 
-#### **文件的内容进行**
+   
+
+   
+
+   
+
+   #### 文件夹操作
+
+   1. ##### 查找文件下的某个文件
+
+   ```
+   命令:find . -name "文件名"
+   备注:
+   
+   .　　　　　　代表当前文件夹，会递归查找子文件夹
+   [文件名]　　可用文件全名或用*代表不确定部分，如*.sh
+   ```
+
+![1567415683100](git操作.assets/1567415683100.png)
+
+######  linux查找目录下的所有文件中是否含有某个字符串
+
+grep -rn "bank"
+
+说明：
+
+-r 是递归查找
+
+-n 是显示行号
+
+\* : 表示当前目录所有文件，也可以是某个文件名
+
+![img](git操作.assets/504727-20180312012121274-372667590.png)
+
+![1567416167040](git操作.assets/1567416167040.png)
+
+![1567416360389](git操作.assets/1567416360389.png)
+
+#### 文件的内容进行**
 
 ### 测试
 
