@@ -97,7 +97,7 @@
 
    
 
-   ###  tail 命令
+   ####  tail 命令
 
    tail  【参数】 文件...
 
@@ -232,3 +232,28 @@ y 向前滚动一行
 [pagedown]： 向下翻动一页
 
 [pageup]：  向上翻动一页
+
+### 压缩与打包命令
+
+### tar 打包命令
+
+目标文件为要打包成的文件的文件名， 打包后文件的 格式取决于目标文件的后缀名
+
+##  tar <operation> [options]
+
+  [-]A --catenate --concatenate
+       [-]c --create
+       [-]d --diff --compare
+       [-]r --append
+       [-]t --list
+       [-]u --update
+       [-]x --extract --get
+       --delete
+
+       Common Options:
+       -C, --directory DIR
+       -f, --file F
+       -j, --bzip2
+       -p, --preserve-permissions
+       -v, --verbose
+       -z, --gzip
